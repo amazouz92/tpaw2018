@@ -1,21 +1,34 @@
-﻿
-$(document).ready(function () { //pour chargement de la page
-   
-       $('#button').on("click", function (event) { //ajouter un "listener" à un élément
-           event.preventDefault();
-           console.log( "click" );
-   
-           if ($('#Nom').val() == "" || $('#Prenom').val() == "" || $('#Datedenaissance').val() == "" || $('#Adresse').val() == "" || $('#Mail').val() == "") {
-   
-               $('#myModal').modal("show");
-           }
-           else {
-               $(".modal-body").html('<p>"Vous etes nés le ' +$('#Datedenaissance').val()+'</p> <img style="max-width:100%" src="https://maps.googleapis.com/maps/api/staticmap?center='+$('#Adresse').val()+'&markers='+$('#Adresse').val()+'&size=800x400&zoom=13"/>');
-               $(".modal-title").text("Bienvenue "+$("#Nom").val());
-               $('#myModal').modal("show");
-   
-           }
-   
-       });
-})
-   
+
+$(document).ready(function () {
+    
+    console.log("DOM ready!");
+    $("button").click(function (event) {
+        event.preventDefault();
+        if ($("#Inputnom").val() == ""
+            || $("#inputprenom").val() == ""
+            || $("#inputdatedenaissance").val() == ""
+            || $("#inputAdresse").val() == ""
+            || $("#InputEmail").val() == "") {
+            alert("veuillez remplir tous les champs")
+        } else {
+            $('#myModal').modal("show");
+            $(".modal-body").html('vous etes '
+            +$("#Inputnom ").val()+' '
+            +$("#inputprenom ").val()
+            +' et vous etes nés le '
+            +$("#inputdatedenaissance").val()
+            +' et vous habitez à '+'<a href=https://www.google.fr/maps/search/ target="_blank"> localisez moi </a>'       
+            +'<img src="map.png" width="330" height="300"/>'+'<br/>'
+            
+            
+        
+        
+        );
+        
+        
+            $('#myModal').modal("show")
+        
+           
+        }
+    });
+});
